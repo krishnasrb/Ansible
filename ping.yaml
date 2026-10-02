@@ -1,0 +1,10 @@
+---
+ - name: checking the servers heart beat
+   hosts: prod
+   become: true
+   gather_facts: true
+   tasks:
+     - ping: 
+       register: ping_var
+     - debug:
+        var: ping_var
