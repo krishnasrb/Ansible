@@ -1,0 +1,12 @@
+---
+ - name: checking the servers services status
+
+   hosts: prod
+   become: true
+   gather_facts: false
+   tasks:
+      - name: storing service info to ansible facts using ansible.builtin.service_facts module
+        ansible.builtin.service_facts:
+      - name: Display all services  status
+        ansible.builtin.debug:
+         var: ansible_facts.services

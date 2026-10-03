@@ -1,0 +1,11 @@
+---
+- name: Install apache2
+  hosts: prod
+  become: true
+
+  tasks:
+    - name: Install apache2
+      ansible.builtin.apt:
+        name: apache2
+        state: latest
+        update_cache: true

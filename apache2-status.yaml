@@ -1,0 +1,11 @@
+---
+ - name: checking the status of apache2
+   hosts: prod
+   serial: 1
+   tasks:
+    - name: Gather service facts
+      ansible.builtin.service_facts:
+
+    - name: Display apache2 status
+      ansible.builtin.debug:
+        msg: "Apache2 status is {{ ansible_facts.services['apache2.service'].state }}"
